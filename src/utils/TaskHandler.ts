@@ -57,20 +57,6 @@ const createEncryptedMessage = (bytes: string | ArrayBuffer): EncryptedFiledata 
     };
 };
 
-// const secureKey = (plainKey: Uint8Array, publicKey: string): Uint8Array => {
-//     console.debug('Found public key', publicKey);
-
-//     const encrypt = new JSEncrypt();
-//     encrypt.setPublicKey(publicKey);
-
-//     const hexKey = Buffer.from(plainKey).toString('hex');
-//     const encryptedKey = encrypt.encrypt(hexKey);
-
-//     if (encryptedKey === false) throw new Error('Cannot encrypt the key');
-
-//     return new Uint8Array(Buffer.from(encryptedKey, 'base64').buffer);
-// };
-
 const webEncodeMessage = (message: object): string => {
     const messageKeys = Object.keys(message);
     const result: { [key: string]: string } = {};
@@ -83,25 +69,6 @@ const webEncodeMessage = (message: object): string => {
 
     return JSON.stringify(result);
 };
-
-// const PublicKey: Promise<string> = new Promise(async (resolve, reject) => {
-//     console.debug('download-public-key');
-
-//     const firebaseStore = useFirebaseStore();
-
-//     const storage = firebaseStore.storage;
-//     const certFile = pathRef(storage, 'public.pem');
-
-//     getBytes(certFile)
-//         .then((buffer) => {
-//             console.debug('Find key', buffer);
-//             resolve(Buffer.from(buffer).toString('utf8'));
-//         })
-//         .catch((reason) => {
-//             console.error('Cannot get public key', reason);
-//             reject(reason);
-//         });
-// });
 
 export default class UploadTaskHandler {
     readFile(task: UploadTask): Promise<string | ArrayBuffer | null> {
