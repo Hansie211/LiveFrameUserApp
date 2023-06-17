@@ -20,7 +20,6 @@ import { defineComponent } from 'vue';
 import { GoogleAuthProvider, FacebookAuthProvider, signInWithPopup, OAuthProvider, AuthProvider } from 'firebase/auth';
 import { useFirebaseStore } from 'src/stores/firebase-store';
 import UserLoginForm from 'src/components/UserLoginForm.vue';
-import CreateAccountDialog from 'src/components/CreateAccountDialog.vue';
 
 interface OptionalOAuthProvider {
     name: string;
@@ -75,12 +74,6 @@ export default defineComponent({
         },
         onLogin() {
             this.$router.push({ name: 'UploadImagePage' });
-        },
-        registerUser() {
-            this.$q.dialog({
-                component: CreateAccountDialog,
-                componentProps: {},
-            });
         },
     },
 });
