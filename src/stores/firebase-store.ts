@@ -38,9 +38,7 @@ export const useFirebaseStore = defineStore('firebaseStore', () => {
         database.value = getFirestore(app.value);
         storage.value = getStorage(app.value);
 
-        const unsubscribe = authentication.value.onAuthStateChanged((userValue) => {
-            unsubscribe();
-
+        authentication.value.onAuthStateChanged((userValue) => {
             console.debug('Found user', userValue?.displayName ?? '<unknown>');
 
             user.value = userValue ?? undefined;

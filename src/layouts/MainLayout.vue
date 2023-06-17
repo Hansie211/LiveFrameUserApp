@@ -3,7 +3,7 @@
         <q-header elevated>
             <q-toolbar>
                 <q-toolbar-title> Live Frame App </q-toolbar-title>
-                <div>Versie v0.0.1</div>
+                <div>Versie v0.0.2</div>
             </q-toolbar>
         </q-header>
 

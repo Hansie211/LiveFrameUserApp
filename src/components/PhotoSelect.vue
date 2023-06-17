@@ -27,7 +27,7 @@ P
                     </q-carousel-slide>
                 </q-carousel>
                 <div id="user-input">
-                    <q-input v-if="files[slideIndex]" ref="descriptionBox" autofocus label="Opmerking" v-model="files[slideIndex].comment" />
+                    <q-input v-if="files[slideIndex]" ref="descriptionBox" autocomplete="false" autofocus autocapitalize="true" spellcheck="true" label="Opmerking" v-model="files[slideIndex].comment" />
                 </div>
             </div>
         </div>

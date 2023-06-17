@@ -8,10 +8,10 @@
                     <hr />
                     <div><span class="text-italic text-subtitle1">Or</span></div>
                 </div>
-                <user-login-form @success="onLogin" />
+                <user-login-form @success="onLogin" :create-account-mode="createAccountMode" />
             </div>
         </div>
-        <div class="q-mt-xl">Don't have an account?<br /><q-btn class="q-mt-sm" color="secondary" label="Register Now!" @click="registerUser" /></div>
+        <div class="q-mt-xl flex flex-center">Don't have an account?<q-checkbox dense v-model="createAccountMode" class="q-ml-md" color="secondary" label="Register Now!" /></div>
     </q-page>
 </template>
 
@@ -45,6 +45,11 @@ export default defineComponent({
         return {
             firebaseStore,
             providers,
+        };
+    },
+    data() {
+        return {
+            createAccountMode: false,
         };
     },
     methods: {

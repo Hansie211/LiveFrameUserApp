@@ -1,5 +1,5 @@
 <template>
-    <q-item :active="taskIsActive">
+    <q-item :active="taskIsActive" style="border-bottom: 1px solid rgba(75, 75, 75, 0.3)" class="q-py-md">
         <q-item-section avatar top>
             <img :src="task.file.objectURL" style="width: 100px; height: 100px; object-fit: contain; object-position: center" />
         </q-item-section>

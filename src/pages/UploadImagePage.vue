@@ -6,8 +6,8 @@
             </div>
         </template>
         <template v-else>
-            <q-list bordered class="full-width" v-for="task in tasks" :key="task.id">
-                <upload-item :task="task" @remove="removeTask" />
+            <q-list bordered class="full-width">
+                <upload-item v-for="task in tasks" :key="task.id" :task="task" @remove="removeTask" />
             </q-list>
         </template>
     </q-page>
