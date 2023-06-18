@@ -11,7 +11,7 @@
                 <user-login-form @success="onLogin" :create-account-mode="createAccountMode" />
             </div>
         </div>
-        <div class="q-mt-xl flex flex-center">Don't have an account?<q-checkbox dense v-model="createAccountMode" class="q-ml-md" color="secondary" label="Register Now!" /></div>
+        <div class="q-mt-xl flex flex-center"><q-checkbox dense v-model="createAccountMode" class="q-ml-md" color="secondary" label="Create account" /></div>
     </q-page>
 </template>
 
