@@ -2,7 +2,7 @@
     <div style="position: relative">
         <div id="alert" v-show="isVisible">
             <div id="close-btn">
-                <q-btn flat round size="sm" icon="close" @click="() => (isVisible = false)" />
+                <q-btn flat round size="sm" icon="mdi-close" @click="() => (isVisible = false)" />
             </div>
             <div id="title">{{ caption }}</div>
             <div id="content">{{ text }}</div>

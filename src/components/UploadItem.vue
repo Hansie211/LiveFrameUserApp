@@ -19,8 +19,8 @@
 
         <q-item-section top side>
             <div class="text-grey-8 q-gutter-xs">
-                <q-btn size="12px" flat dense round icon="delete" v-if="taskIsPending" @click="() => $emit('remove', task)" />
-                <q-btn size="12px" flat dense round icon="close" v-if="taskIsDone" @click="() => $emit('remove', task)" />
+                <q-btn size="12px" flat dense round icon="mdi-delete" v-if="taskIsPending" @click="() => $emit('remove', task)" />
+                <q-btn size="12px" flat dense round icon="mdi-close" v-if="taskIsDone" @click="() => $emit('remove', task)" />
             </div>
         </q-item-section>
     </q-item>

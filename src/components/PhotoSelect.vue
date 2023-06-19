@@ -2,14 +2,14 @@ P
 <template>
     <div class="full-width q-px-lg">
         <q-file class="q-mt-lg" ref="upload" v-model="model" @input="onFilesSelected" :max-file-size="maxSize" multiple v-show="false" accept="video/*, image/*" />
-        <q-btn :label="label" icon="upload" @click="onClickSelect" class="full-width" color="primary" style="height: 3.5em" />
+        <q-btn :label="label" icon="mdi-upload" @click="onClickSelect" class="full-width" color="primary" style="height: 3.5em" />
     </div>
 
     <q-dialog v-model="showDialog" persistent :maximized="true" transition-show="jump-up" transition-hide="slide-left">
         <div style="background-color: white">
             <div id="dialog-content" class="q-gutter-y-md q-pa-sm">
                 <div class="flex row full-width">
-                    <q-btn dense flat icon="close" @click="() => (showDialog = false)" />
+                    <q-btn dense flat icon="mdi-close" @click="() => (showDialog = false)" />
                     <q-space />
                     <q-btn dense flat label="Sent" @click="onClickSent" />
                 </div>
@@ -21,13 +21,13 @@ P
                         </div>
 
                         <q-carousel-control position="bottom-right" :offset="[18, 18]" class="q-gutter-xs">
-                            <q-btn push round dense color="orange" text-color="black" icon="arrow_left" @click="componentRefs['carousel'].previous()" :disable="slideIndex === 0" />
-                            <q-btn push round dense color="orange" text-color="black" icon="arrow_right" @click="componentRefs['carousel'].next()" :disable="slideIndex === files.length - 1" />
+                            <q-btn push round dense color="orange" text-color="black" icon="mdi-menu-left" @click="componentRefs['carousel'].previous()" :disable="slideIndex === 0" />
+                            <q-btn push round dense color="orange" text-color="black" icon="mdi-menu-right" @click="componentRefs['carousel'].next()" :disable="slideIndex === files.length - 1" />
                         </q-carousel-control>
                     </q-carousel-slide>
                 </q-carousel>
-                <div id="user-input">
-                    <q-input v-if="files[slideIndex]" ref="descriptionBox" autocomplete="false" autofocus autocapitalize="true" spellcheck="true" label="Opmerking" v-model="files[slideIndex].comment" />
+                <div>
+                    <q-input v-if="files[slideIndex]" ref="descriptionBox" autocomplete="false" autofocus autocapitalize="true" spellcheck="true" label="Beschrijving" v-model="files[slideIndex].comment" />
                 </div>
             </div>
         </div>

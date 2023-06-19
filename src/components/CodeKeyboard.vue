@@ -1,7 +1,7 @@
 <template>
     <div class="flex row justify-end full-width">
         <q-btn v-for="x in 10" :key="x" class="keyboard-button" :label="x % 10" @click="() => $emit('input', x % 10)" />
-        <q-btn class="keyboard-button" style="font-size: unset !important" icon="backspace" @click="() => $emit('delete')" />
+        <q-btn class="keyboard-button" style="font-size: unset !important" icon="mdi-backspace" @click="() => $emit('delete')" />
     </div>
 </template>
 

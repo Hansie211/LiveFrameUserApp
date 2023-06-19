@@ -4,7 +4,7 @@
             <q-toolbar>
                 <q-toolbar-title> Live Frame App <span style="font-size: 0.6em">v0.0.2</span></q-toolbar-title>
                 <user-card v-if="firebaseStore.user" :user="firebaseStore.user" class="q-mr-sm" />
-                <q-btn flat round dense icon="logout" aria-label="logout" title="Log Out" @click="logout" />
+                <q-btn flat round dense icon="mdi-logout" aria-label="logout" title="Log Out" @click="logout" />
             </q-toolbar>
         </q-header>
 
