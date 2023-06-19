@@ -24,8 +24,7 @@
                     </template>
 
                     <q-card class="q-py-xl" bordered>
-                        <user-login-form @success="onLogin" @error="onError" :create-account-mode="createAccountMode" />
-                        <div class="q-mt-xl flex flex-center"><q-toggle dense v-model="createAccountMode" class="q-ml-md" color="secondary" label="Create account" /></div>
+                        <user-login-form @success="onLogin" @error="onError" />
                     </q-card>
                 </q-expansion-item>
             </div>
@@ -102,7 +101,6 @@ export default defineComponent({
     },
     data() {
         return {
-            createAccountMode: false,
             errorMessage: '',
         };
     },

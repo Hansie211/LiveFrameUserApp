@@ -18,6 +18,8 @@
                 />
             </div>
             <q-btn :label="createAccountMode ? 'Register' : 'Sign in'" color="secondary" class="full-width q-mt-lg" type="submit" />
+            <q-btn label="I forgot my password" flat no-caps dense padding="none md" @click="onPasswordForgotClick" />
+            <div class="q-mt-xl flex flex-center"><q-toggle dense v-model="createAccountMode" class="q-ml-md" color="secondary" label="Create account" /></div>
         </q-form>
     </div>
 </template>
@@ -26,14 +28,9 @@
 import { defineComponent } from 'vue';
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth';
 import { useFirebaseStore } from 'src/stores/firebase-store';
+import PasswordForgottenDialog from './PasswordForgottenDialog.vue';
 
 export default defineComponent({
-    props: {
-        createAccountMode: {
-            type: Boolean,
-            default: false,
-        },
-    },
     emits: ['success', 'error'],
     setup() {
         const firebaseStore = useFirebaseStore();
@@ -48,6 +45,7 @@ export default defineComponent({
             passwordConfirm: '',
             passwordVisible: false,
             errorMessage: '',
+            createAccountMode: false,
         };
     },
     methods: {
@@ -74,6 +72,19 @@ export default defineComponent({
                     this.form.reset();
 
                     this.$emit('error', error);
+                });
+        },
+        onPasswordForgotClick() {
+            this.$q
+                .dialog({
+                    component: PasswordForgottenDialog,
+                    componentProps: {
+                        initialEmail: this.email,
+                    },
+                })
+                .onOk((data) => {
+                    this.email = data;
+                    this.createAccountMode = false;
                 });
         },
     },
